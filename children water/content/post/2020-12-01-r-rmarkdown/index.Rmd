@@ -1,0 +1,34 @@
+---
+title: "Daily water consumption by children"
+author: "shaw cheng"
+date: "`r Sys.Date()`"
+categories: ["R"]
+tags: ["R Markdown", "plot", "regression"]
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# Introduction
+
+These are data visualizations oError : Failed to render content/post/2020-12-01-r-rmarkdown/index.Rmdf the daily water intake of children in New South Wales.
+
+
+# Less than 1 cup percent line chart 
+```{r echo=FALSE, message=FALSE, warning=FALSE, linechart, echo=FALSE}
+a1<-read.csv("C:\\Users\\Administrator\\Desktop\\children water gender data.csv")
+library(ggplot2)
+library(plotly)
+group<-as.factor(a1$Sex)
+b1<-ggplot(data = a1,aes(x=Period, y=Per.cent, color = group, shape=group))+
+  geom_point(size =1)+
+  geom_line(size = 0.5)+
+  labs(x="year",y="Less than 1 cup percent")+
+  geom_hline(aes(yintercept=0), alpha=0.65)
+ggplotly(b1)
+
+```
+
+
+
